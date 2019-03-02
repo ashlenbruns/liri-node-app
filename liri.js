@@ -28,6 +28,9 @@ if (userCommand === 'concert-this') {
 function concert() {
     axios.get("https://rest.bandsintown.com/artists/" + userInput + "/events?app_id=codingbootcamp").then(
         function(response) {
+            if (response.data.length === 0) {
+                console.log("Sorry, " + userInput + " is not on tour.")
+            } else {    
             for (i=0;i<response.data.length;i++) {
             var venueName = response.data[i].venue.name;
             var venueLocation = response.data[i].venue.city + ", " + response.data[i].venue.region + " " + response.data[i].venue.country;
@@ -45,8 +48,9 @@ function concert() {
             });
         }
     }
+    }
     ).catch(function(err) {
-            console.log("Sorry, " + userInput + " is not on tour.");
+            console.log(err);
         });
 };
 
@@ -115,7 +119,7 @@ function movie() {
                 });
             }
     ).catch(function(err) {
-        console.log("Sorry, we couldn't find anything on the movie, " + userInput + ".");
+        console.log(err);
     });
 };
 
