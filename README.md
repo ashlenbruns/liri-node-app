@@ -24,6 +24,16 @@ Open your terminal and run one of the following:
    
 4. ```node liri.js do-what-it-says```
    - This command retrieves data from the random.txt file and uses that to call one of Liri's commands.
+   
+### TECHNOLOGIES USED
+* JavaScript
+* node
+* fs
+* axios
+* dotenv
+* Spotify API
+* Bands in Town API
+* OMDB API
 
 
 
